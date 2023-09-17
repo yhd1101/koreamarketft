@@ -1,11 +1,18 @@
 import React from 'react';
+import Main from "../../components/Home/Main";
+import Intro from "../../components/Home/Intro";
+import IntroRarity from "../../components/Home/IntroRarity";
+import FAQ from "../../components/Home/FAQ";
 
-const Index = () => {
+const index = () => {
     return (
-        <div>
-            1234
-        </div>
+       <>
+           <Main/>
+           <Intro/>
+           <IntroRarity/>
+           <FAQ/>
+       </>
     );
 };
 
-export default Index;
+export default index;
