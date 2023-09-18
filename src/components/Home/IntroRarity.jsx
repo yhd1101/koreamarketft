@@ -21,10 +21,10 @@ const IntroRarity = () => {
                   <span className="block text-violet-500 lg:inline">
                     Ultra rare
                   </span>{" "}
-                                    Happy Teddy NFTs
+                                    Korea Market
                                 </h1>
                                 <p className="mx-auto max-w-2xl pt-12 text-lg leading-8 text-gray-900">
-                                    Happy Teddy NFTs are special digital things that are very rare
+                                    Korea Market are special digital things that are very rare
                                     and totally unique. Each one is made up of more than 100
                                     different parts that are combined in different ways to make
                                     each one completely one-of-a-kind. And because they are made

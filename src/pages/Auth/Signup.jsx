@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom'
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
@@ -8,6 +8,34 @@ import {EMAIL_REGEX} from "../../data/Auth/authData";
 
 
 const Signup = () => {
+
+
+    // const [users, setUsers] = useState([]);
+
+    // const userData = [
+    //     { name: "만 14세이상입니다." },
+    //     { name: "이용약관" },
+    //     { name: "개인정보수집 및 이용동의" },
+    //     { name: "개인정보 마케팅 활용 동의" },
+    //     { name: "이벤트, 쿠폰, 특가 알림 메일 및 SMS 등 수신" }
+    // ];
+
+    // const handleChange = (e) => {
+    //     const { name, checked } = e.target;
+    //     if (name === "allSelect") {
+    //         let tempUser = users.map((user) => {
+    //             return { ...user, isChecked: checked };
+    //         });
+    //         setUsers(tempUser);
+    //     } else {
+    //         let tempUser = users.map((user) =>
+    //             user.name === name ? { ...user, isChecked: checked } : user
+    //         );
+    //         setUsers(tempUser);
+    //     }
+    // };
+
+
     const {
         register,
         handleSubmit,
@@ -21,13 +49,31 @@ const Signup = () => {
             name : "",
             email: "",
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
+            agreement: [],
+            allAgreement: false, // 전체 동의 체크박스 추가
         }
     })
+
+    // 전체 동의 체크박스 선택/해제 시 모든 항목 체크/해제 함수
+    const handleAllAgreementChange = (e) => {
+        const isChecked = e.target.checked;
+        setValue('allAgreement', isChecked);
+
+        // 모든 항목 체크/해제
+        const agreementFieldNames = ['agreement1', 'agreement2', 'agreement3','agreement4','agreement5']; // 필요한 약관 항목 이름 추가
+        agreementFieldNames.forEach((fieldName) => {
+            setValue(fieldName, isChecked);
+        });
+    };
 
     const onSubmit = handleSubmit((data) => {
         console.log(data)
     })
+
+    useEffect(() => {
+        // setUsers(userData)
+    }, [])
     return (
         <section className="m-auto grid min-h-[calc(100vh-65px)] w-full grid-cols-10">
             <div className="col-span-10 flex h-full w-full grow flex-col items-center justify-center bg-white shadow-slate-50 drop-shadow-md lg:col-span-4">
@@ -115,12 +161,121 @@ const Signup = () => {
                             className="mb-3"
                             autocomplete="off"
                         />
+
+                        {/* 전체 동의 체크박스 */}
+                        <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700">Full agreement</label>
+                            <input
+                                type="checkbox"
+                                id="allAgreement"
+                                {...register('allAgreement')}
+                                onChange={handleAllAgreementChange}
+                                className="mr-2"
+                            />
+                            <label htmlFor="allAgreement" className="text-sm text-gray-900">
+                                I totally agree
+                            </label>
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="block text-sm font-medium text-gray-700">Acceptance of Terms</label>
+                            <div className="space-y-2">
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="agreement1"
+                                        {...register('agreement1', { required: 'Check to Acceptance of Terms' })}
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="agreement1" className="text-sm text-gray-900">
+                                        14 years of age or older
+                                    </label>
+                                </div>
+                                {/* 이하 약관 목록 추가 */}
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="agreement2"
+                                        {...register('agreement2', { required: 'Check to Acceptance of Terms' })}
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="agreement2" className="text-sm text-gray-900">
+                                        Terms of Use
+                                    </label>
+                                </div>
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="agreement3"
+                                        {...register('agreement3', { required: 'Check to Acceptance of Terms' })}
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="agreement3" className="text-sm text-gray-900">
+                                        consent to collection of personal information
+                                    </label>
+                                </div>
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="agreement4"
+                                        {...register('agreement4', { required: 'Check to Acceptance of Terms' })}
+                                        value="개인정보 마케팅 활용 동의"
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="agreement4" className="text-sm text-gray-900">
+                                        i agree to the above terms and conditions
+                                    </label>
+                                </div>
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="agreement5"
+                                        {...register('agreement5', { required: 'Check to Acceptance of Terms' })}
+                                        value="이벤트, 쿠폰, 특가 알림 메일 및 SMS 등 수신"
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="agreement5" className="text-sm text-gray-900">
+                                        system event notification services
+                                    </label>
+                                </div>
+
+                            </div>
+                            {errors.agreement && (
+                                <p className="text-sm text-red-600 mt-1">{errors.agreement.message}</p>
+                            )}
+                        </div>
+
                         <Button
                             text="Create account"
                             disabled={isSubmitting}
                             className="rounded-lg bg-violet-500 py-4 font-semibold text-white hover:bg-violet-600"
                         />
                     </form>
+                    {/*<div className="form-check">*/}
+                    {/*    <input*/}
+                    {/*        type="checkbox"*/}
+                    {/*        className="form-check-input"*/}
+                    {/*        name="allSelect"*/}
+                    {/*        // checked={*/}
+                    {/*        //   users.filter((user) => user?.isChecked !== true).length < 1*/}
+                    {/*        // }*/}
+                    {/*        checked={!users.some((user) => user?.isChecked !== true)}*/}
+                    {/*        onChange={handleChange}*/}
+                    {/*    />*/}
+                    {/*    <label className="form-check-label ms-2">All Select</label>*/}
+                    {/*</div>*/}
+                    {/*{users.map((user, index) =>(*/}
+                    {/*    <div className="form-check" key={index}>*/}
+                    {/*        <input*/}
+                    {/*            type="checkbox"*/}
+                    {/*            className="form-check-input"*/}
+                    {/*            name={user.name}*/}
+                    {/*            checked={user?.isChecked || false}*/}
+                    {/*            onChange={handleChange}*/}
+                    {/*        />*/}
+                    {/*        <label className="form-check-label ms-2">{user.name}</label>*/}
+                    {/*    </div>*/}
+                    {/*))}*/}
                     <div className="mt-10 text-slate-500">
                         Already have an account?
                         <Link to="/login" className="p-2 font-semibold text-violet-500">

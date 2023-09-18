@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
+import FindPassword from "./pages/Auth/FindPassword"
 const router = createBrowserRouter([
     {
         path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                 path: "/signup",
                 element: <Signup/>
             },
+            {
+                path:"/find/password",
+                element: <FindPassword/>
+            }
         ]
     }
 ])

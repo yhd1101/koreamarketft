@@ -9,19 +9,20 @@ const Intro = () => {
                     <div className="mx-auto max-w-2xl pt-16 sm:pt-20 lg:pt-24">
                         <div className="text-center">
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                What is Happy Teddy?
+                                What is Korea Market?
                             </h1>
                             <p className="mt-8 text-lg leading-6 text-violet-500">
-                                Rediscovering Joy and Playfulness through Blockchain
-                                Collectibles.
+                                Koreans is a second-hand trading site.
                             </p>
                             <div className="relative pt-12 text-lg leading-8 text-gray-900">
                                 <p>
-                                    Happy Teddy is a playful brand that uses blockchain technology
+                                    Korea Market is a second-hand trading site for Koreans in the U.S.
+                                    and Canada, and other foreigners can also use this site, even if they
+                                    are not Koreans. This site is also a safe site where you can search
+                                    for jobs and evaluate reliability.
+                                    Korea Market is a playful brand that uses blockchain technology
                                     to create unique digital collectibles and physical
-                                    merchandise. Our digital collectibles, called NFTs, are
-                                    available on OpenSea, the leading marketplace for buying and
-                                    selling NFTs.
+                                    merchandise.
                                     <br />
                                     Join us in spreading joy and playfulness!
                                 </p>
