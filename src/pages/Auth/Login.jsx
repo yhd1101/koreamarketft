@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import AuthImageContainer from "../../components/ui/AuthImageContainer";
@@ -8,9 +8,18 @@ import {EMAIL_REGEX} from "../../data/Auth/authData";
 import {AiOutlineGoogle} from "react-icons/ai";
 import {SiNaver} from "react-icons/si";
 import {SiKakao} from "react-icons/si";
+import useLoginUser from "../../services/loginUser";
 
 
 const Login = () => {
+    const navigate = useNavigate()
+    const { data, isLoading, error, mutateAsync } = useLoginUser()
+
+    const onSubmit = async (values) => {
+        console.log("222222222222", values)
+        await mutateAsync(values)
+        navigate("/")
+    }
     const {
         register,
         handleSubmit,
@@ -28,9 +37,9 @@ const Login = () => {
         }
     })
 
-    const onSubmit = handleSubmit((data) => {
-        console.log(data)
-    })
+    // const onSubmit = handleSubmit((data) => {
+    //     console.log(data)
+    // })
     return (
         <section className="m-auto grid min-h-[calc(100vh-65px)] w-full grid-cols-10">
             <div className="col-span-10 flex h-full w-full grow flex-col items-center justify-center bg-white shadow-slate-50 drop-shadow-md lg:col-span-4">
@@ -39,7 +48,7 @@ const Login = () => {
                     <p className="text-slate-500">Create your account now.</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <form className="flex w-full max-w-sm flex-col" onSubmit={onSubmit}>
+                    <form className="flex w-full max-w-sm flex-col" onSubmit={handleSubmit(onSubmit)}>
                         <Input
                             {...register('email', {
                                 required: 'Please provide an email.',
@@ -80,6 +89,7 @@ const Login = () => {
 
 
                         <Button
+                            type={"submit"}
                             text="Login"
                             disabled={isSubmitting}
                             className="rounded-lg bg-violet-500 py-4 font-semibold text-white hover:bg-violet-600"
@@ -89,14 +99,17 @@ const Login = () => {
                         text={"Sign with Google"}
                         icon={() => <AiOutlineGoogle className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
+                        onClick={() => {
+                            navigate('/', { replace: true})
+                        }}
                     />
                     <Button
-                        text={"Sign with Google"}
+                        text={"Sign with Naver"}
                         icon={() => <SiNaver className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
                     />
                     <Button
-                        text={"Sign with Google"}
+                        text={"Sign with Kakao"}
                         icon={() => <SiKakao className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
                     />

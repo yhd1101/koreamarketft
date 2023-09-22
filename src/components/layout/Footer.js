@@ -113,7 +113,7 @@ const Footer = () => {
                                 target="_blank"
                                 to="https://github.com/joke716"
                             >
-                                Teddy Kwak
+                                Handong Yang
                             </Link>
                             . All rights reserved.
                         </div>

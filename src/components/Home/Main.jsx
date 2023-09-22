@@ -13,7 +13,7 @@ const Main = () => {
                         <div className="lg:pt-12">
                             <div className="lg:max-w-xl">
                                 <h1 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-left">
-                                    Welcome to the World of{""}
+                                    Welcome to the World of{" "}
                                     <span className="block text-violet-500 lg:inline">
                     Korea Market
                   </span>
@@ -22,8 +22,7 @@ const Main = () => {
                   <span className="inline font-semibold text-gray-900">
                     Korea Market
                   </span>{" "}
-                                    are 100 unique collectible Yorkies with proof of ownership
-                                    stored on the Ethereum Blockchain.
+                                    :Discover Authentic Treasures and Explore Korean Culture and Craftsmanship
                                 </p>
                                 <div className="mt-10 flex flex-wrap items-center justify-center gap-y-4 gap-x-6 sm:flex-nowrap sm:gap-y-4 lg:justify-start">
                                     <Link

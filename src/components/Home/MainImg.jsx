@@ -1,7 +1,8 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import ImagePlaceholder from "../ui/ImagePlaceholder";
-import { SiEthereum } from "react-icons/si";
+import { BiDollar } from 'react-icons/bi';
+import { SiEthereum,  } from "react-icons/si";
 const MainImg = ({
                        name,
                        price,
@@ -41,7 +42,8 @@ const MainImg = ({
               Price
             </span>
                         <p className=" flex items-center text-lg font-bold text-violet-500">
-                            <SiEthereum className="mr-1" />
+                            <BiDollar className="mr-1" />
+                            {/*<CurrencyDollarIcon className= "mr-1" />*/}
                             {price}
                         </p>
                     </div>

@@ -12,7 +12,7 @@ const Intro = () => {
                                 What is Korea Market?
                             </h1>
                             <p className="mt-8 text-lg leading-6 text-violet-500">
-                                Koreans is a second-hand trading site.
+                                For Koreans Abroad: Your International Direct Trading Hub
                             </p>
                             <div className="relative pt-12 text-lg leading-8 text-gray-900">
                                 <p>
@@ -20,8 +20,9 @@ const Intro = () => {
                                     and Canada, and other foreigners can also use this site, even if they
                                     are not Koreans. This site is also a safe site where you can search
                                     for jobs and evaluate reliability.
-                                    Korea Market is a playful brand that uses blockchain technology
-                                    to create unique digital collectibles and physical
+                                    Korea Market offers multiple categories and provides convenient options
+                                    for selecting your desired location, time, and more. It's your go-to platform
+                                    for hassle-free transactions.
                                     merchandise.
                                     <br />
                                     Join us in spreading joy and playfulness!
@@ -31,9 +32,9 @@ const Intro = () => {
                     </div>
                     <div className="relative inline-block w-full after:absolute after:-bottom-48 after:left-1/2  after:block after:h-72 after:w-72 after:-translate-x-1/2 after:rounded-full after:bg-pink-300">
                         <LazyLoadImage
-                            src="images/intro_image.webp"
-                            width={300}
-                            height={200}
+                            src="https://cdn.pixabay.com/photo/2016/09/30/19/10/ecommerce-1706103_1280.png"
+                            width={800}
+                            height={400}
                             placeholder={<ImagePlaceholder />}
                             alt="Image Alt"
                             className="relative -bottom-2 z-10 mx-auto"

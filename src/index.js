@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import FindPassword from "./pages/Auth/FindPassword"
+import {ReactQueryProvider} from "./Provider";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,9 +38,14 @@ const router = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router}/>
+      <ReactQueryProvider>
+          <RouterProvider router={router}/>
+      </ReactQueryProvider>
   </React.StrictMode>
 );
 

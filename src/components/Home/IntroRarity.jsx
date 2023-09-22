@@ -8,7 +8,7 @@ const IntroRarity = () => {
                     <div className="mx-auto flex flex-col rounded-3xl bg-slate-50 py-24 lg:mx-0 ">
                         <div className="relative flex h-52 w-full justify-center sm:h-64 md:h-80 lg:h-96">
                             <LazyLoadImage
-                                src="images/rarity.webp"
+                                src="https://img.freepik.com/free-vector/people-shopping-store-mall-market_107791-15609.jpg?w=1380&t=st=1695176693~exp=1695177293~hmac=b3ad1f0e9b2290d017db45f92b17c9f431ddab625e31f5f558e76045bf8c02b5"
                                 width="100%"
                                 // effect="blur"
                                 alt="Image Alt"
@@ -19,18 +19,12 @@ const IntroRarity = () => {
                             <div className="text-center">
                                 <h1 className="m-auto text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:max-w-3xl">
                   <span className="block text-violet-500 lg:inline">
-                    Ultra rare
+                    Using
                   </span>{" "}
                                     Korea Market
                                 </h1>
                                 <p className="mx-auto max-w-2xl pt-12 text-lg leading-8 text-gray-900">
-                                    Korea Market are special digital things that are very rare
-                                    and totally unique. Each one is made up of more than 100
-                                    different parts that are combined in different ways to make
-                                    each one completely one-of-a-kind. And because they are made
-                                    using blockchain technology, each Happy Jolly can only be
-                                    owned by one person. With so many possibilities, every Happy
-                                    Jolly is a special and unique creation!
+                                    Discover the World of Korea Market today! Your one-stop destination for authentic Korean treasures and unique finds. Shop with ease, explore diverse categories, and connect with sellers worldwide. Don't miss out—start your Korea Market adventure now. Join us to experience the best of Korean culture and craftsmanship. Your next great discovery is just a click away
                                 </p>
                             </div>
                         </div>

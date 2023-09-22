@@ -13,7 +13,7 @@ const Faq = () => {
                         Frequently asked questions.
                     </h2>
                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                        Can&#39;t find the answer you&#39;re lookinf for? Please{" "}
+                        Can&#39;t find the answer you&#39;re looking for? Please{" "}
                         <a
                             href="mailto:jinpark0625@gmail.com"
                             className="font-medium text-violet-500"
