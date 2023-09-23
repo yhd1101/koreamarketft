@@ -12,7 +12,7 @@ import React from "react";
 const Signup = () => {
     const navigate = useNavigate()
     const { data, isLoading, error, mutateAsync } = useSignupUser()
-    console.log("77777777777", data)
+    // console.log("77777777777", data)
 
 
 

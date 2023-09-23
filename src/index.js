@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import FindPassword from "./pages/Auth/FindPassword"
+import ChangePassword from "./pages/Auth/ChagnePassword"
 import {ReactQueryProvider} from "./Provider";
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path:"/find/password",
                 element: <FindPassword/>
+            },
+            {
+                path: "/change/password",
+                element: <ChangePassword/>
             }
         ]
     }

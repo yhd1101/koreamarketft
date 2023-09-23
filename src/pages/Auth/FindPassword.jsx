@@ -5,29 +5,29 @@ import Button from "../../components/ui/Button";
 import AuthImageContainer from "../../components/ui/AuthImageContainer";
 import {useForm} from "react-hook-form";
 import {EMAIL_REGEX} from "../../data/Auth/authData";
+import useSendMail from "../../services/sendMail";
 
 
 const FindPassword = () => {
+    const { data, isLoading, eroor, mutateAsync } =useSendMail()
+
     const {
         register,
         handleSubmit,
-        watch,
-        setValue,
-        setError,
-        clearErrors,
         formState: { isSubmitting, errors, isDirty}
     } = useForm({
         defaultValues: {
-            name : "",
             email: "",
-            password: "",
-            confirmPassword: ""
         }
     })
 
-    const onSubmit = handleSubmit((data) => {
-        console.log(data)
-    })
+    const onSubmit = async (values) => {
+        await mutateAsync(values)
+    }
+
+    // const onSubmit = handleSubmit((data) => {
+    //     console.log(data)
+    // })
     return (
         <section className="m-auto grid min-h-[calc(100vh-65px)] w-full grid-cols-10">
             <div className="col-span-10 flex h-full w-full grow flex-col items-center justify-center bg-white shadow-slate-50 drop-shadow-md lg:col-span-4">
@@ -36,7 +36,7 @@ const FindPassword = () => {
                     <p className="text-slate-500">Forgot your password?</p>
                 </div>
                 <div className="flex flex-col items-center">
-                    <form className="flex w-full max-w-sm flex-col" onSubmit={onSubmit}>
+                    <form className="flex w-full max-w-sm flex-col" onSubmit={handleSubmit(onSubmit)}>
                         <Input
                             {...register('email', {
                                 required: 'Please provide an email.',
@@ -59,6 +59,7 @@ const FindPassword = () => {
                             text="verify"
                             disabled={isSubmitting}
                             className="rounded-lg bg-violet-500 py-4 font-semibold text-white hover:bg-violet-600"
+                            type={"submit"}
                         />
                     </form>
                     <div className="mt-10 text-slate-500">

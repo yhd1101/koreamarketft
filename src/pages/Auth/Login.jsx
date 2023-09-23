@@ -14,19 +14,12 @@ import useLoginUser from "../../services/loginUser";
 const Login = () => {
     const navigate = useNavigate()
     const { data, isLoading, error, mutateAsync } = useLoginUser()
+    console.log("9999999999999", data)
 
-    const onSubmit = async (values) => {
-        console.log("222222222222", values)
-        await mutateAsync(values)
-        navigate("/")
-    }
+
     const {
         register,
         handleSubmit,
-        watch,
-        setValue,
-        setError,
-        clearErrors,
         formState: { isSubmitting, errors, isDirty}
     } = useForm({
         defaultValues: {
@@ -36,6 +29,12 @@ const Login = () => {
             confirmPassword: ""
         }
     })
+
+    const onSubmit = async (values) => {
+        console.log("000000000", values)
+        await mutateAsync(values)
+        navigate("/")
+    }
 
     // const onSubmit = handleSubmit((data) => {
     //     console.log(data)
@@ -100,23 +99,35 @@ const Login = () => {
                         icon={() => <AiOutlineGoogle className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
                         onClick={() => {
-                            navigate('/', { replace: true})
+                            window.location.href = "http://localhost:8000/api/auth/google"; // 클라이언트에서 서버로의 요청
                         }}
                     />
                     <Button
                         text={"Sign with Naver"}
                         icon={() => <SiNaver className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
+                        onClick={() => {
+                            window.location.href = "http://localhost:8000/api/auth/naver"; // 클라이언트에서 서버로의 요청
+                        }}
                     />
                     <Button
                         text={"Sign with Kakao"}
                         icon={() => <SiKakao className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
+                        onClick={() => {
+                            window.location.href = "http://localhost:8000/api/auth/kakao"; // 클라이언트에서 서버로의 요청
+                        }}
                     />
                     <div className="mt-10 text-slate-500">
                         Already have an account?
                         <Link to="/signup" className="p-2 font-semibold text-violet-500">
                             signup
+                        </Link>
+                    </div>
+                    <div className="mt-10 text-slate-500">
+                        Did you forget your
+                        <Link to="/find/password" className="p-2 font-semibold text-violet-500">
+                            Password
                         </Link>
                     </div>
                 </div>

@@ -1,8 +1,10 @@
 import authApi from "./api";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
+import axios from "axios";
 
 const loginUser = async (userInput) => {
-    const { data } = await authApi.post("/login", userInput)
+    const { data } = await axios.post("http://localhost:8000/api/auth/login", userInput)
+    console.log("2222222222", data)
     return data
 }
 
