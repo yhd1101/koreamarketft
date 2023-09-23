@@ -9,7 +9,7 @@ const IntroRarity = () => {
                         <div className="relative flex h-52 w-full justify-center sm:h-64 md:h-80 lg:h-96">
                             <LazyLoadImage
                                 src="https://img.freepik.com/free-vector/people-shopping-store-mall-market_107791-15609.jpg?w=1380&t=st=1695176693~exp=1695177293~hmac=b3ad1f0e9b2290d017db45f92b17c9f431ddab625e31f5f558e76045bf8c02b5"
-                                width="100%"
+                                width="75%"
                                 // effect="blur"
                                 alt="Image Alt"
                                 className="h-full w-full object-cover"

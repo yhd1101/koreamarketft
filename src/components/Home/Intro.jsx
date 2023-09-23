@@ -33,8 +33,8 @@ const Intro = () => {
                     <div className="relative inline-block w-full after:absolute after:-bottom-48 after:left-1/2  after:block after:h-72 after:w-72 after:-translate-x-1/2 after:rounded-full after:bg-pink-300">
                         <LazyLoadImage
                             src="https://cdn.pixabay.com/photo/2016/09/30/19/10/ecommerce-1706103_1280.png"
-                            width={800}
-                            height={400}
+                            width={500}
+                            height={300}
                             placeholder={<ImagePlaceholder />}
                             alt="Image Alt"
                             className="relative -bottom-2 z-10 mx-auto"
