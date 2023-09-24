@@ -10,7 +10,11 @@ import Login from "./pages/Auth/Login";
 import Signup from "./pages/Auth/Signup";
 import FindPassword from "./pages/Auth/FindPassword"
 import ChangePassword from "./pages/Auth/ChagnePassword"
+import Products from "./pages/Product/Products"
+import ProductDetail from "./pages/Product/ProductDetail";
 import {ReactQueryProvider} from "./Provider";
+import {AuthContextProvider} from "./context/AuthContext";
+import ScrollToTop from "./components/ScrollToTop";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,6 +41,14 @@ const router = createBrowserRouter([
             {
                 path: "/change/password",
                 element: <ChangePassword/>
+            },
+            {
+                path: "/products",
+                element: <Products/>
+            },
+            {
+                path:"/product/:id",
+                element: <ProductDetail/>
             }
         ]
     }
@@ -49,7 +61,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <ReactQueryProvider>
-          <RouterProvider router={router}/>
+          <AuthContextProvider>
+            <RouterProvider router={router}/>
+          </AuthContextProvider>
       </ReactQueryProvider>
   </React.StrictMode>
 );

@@ -25,15 +25,15 @@ const Main = () => {
                                     :Discover Authentic Treasures and Explore Korean Culture and Craftsmanship
                                 </p>
                                 <div className="mt-10 flex flex-wrap items-center justify-center gap-y-4 gap-x-6 sm:flex-nowrap sm:gap-y-4 lg:justify-start">
+                                    {/*<Link*/}
+                                    {/*    to="/nfts"*/}
+                                    {/*    className="flex w-full items-center justify-center rounded-md bg-violet-500 px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm transition-all hover:bg-violet-600 sm:w-fit"*/}
+                                    {/*>*/}
+                                    {/*    See the Collection*/}
+                                    {/*    <GlobeEuropeAfricaIcon className="ml-2 h-4 w-4" />*/}
+                                    {/*</Link>*/}
                                     <Link
-                                        to="/nfts"
-                                        className="flex w-full items-center justify-center rounded-md bg-violet-500 px-4 py-2 text-base font-semibold leading-7 text-white shadow-sm transition-all hover:bg-violet-600 sm:w-fit"
-                                    >
-                                        See the Collection
-                                        <GlobeEuropeAfricaIcon className="ml-2 h-4 w-4" />
-                                    </Link>
-                                    <Link
-                                        to="/collections"
+                                        to="/products"
                                         className="flex max-h-[44px] w-full items-center justify-center rounded-md border border-violet-500 px-4 py-2 text-base font-semibold leading-7 text-violet-500 shadow-sm transition-all hover:shadow-violet-500 sm:w-fit"
                                     >
                                         Shop Now
