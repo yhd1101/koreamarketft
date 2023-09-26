@@ -1,4 +1,4 @@
-const ProductTitle = ({ title, className }: TitleType) => {
+const ProductTitle = ({ title, className }) => {
     return (
         <h1
             className={`text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl ${

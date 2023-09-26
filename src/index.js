@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import NotFound from "./pages/NotFound";
@@ -14,7 +15,13 @@ import Products from "./pages/Product/Products"
 import ProductDetail from "./pages/Product/ProductDetail";
 import {ReactQueryProvider} from "./Provider";
 import {AuthContextProvider} from "./context/AuthContext";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "./lang/i18n"
+
 import ScrollToTop from "./components/ScrollToTop";
+import * as PropTypes from "prop-types";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -55,14 +62,12 @@ const router = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
-
 root.render(
   <React.StrictMode>
       <ReactQueryProvider>
           <AuthContextProvider>
             <RouterProvider router={router}/>
+              <ReactQueryDevtools initialIsOpen={false}/>
           </AuthContextProvider>
       </ReactQueryProvider>
   </React.StrictMode>

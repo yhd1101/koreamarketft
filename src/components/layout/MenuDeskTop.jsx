@@ -1,4 +1,4 @@
-import React, {forwardRef, Fragment} from 'react';
+import React, {forwardRef, Fragment, useContext} from 'react';
 import {ArrowLeftOnRectangleIcon, Bars3Icon, PencilSquareIcon, ShoppingBagIcon} from "@heroicons/react/24/outline";
 import {Link, useNavigate} from "react-router-dom";
 import {Popover, Transition} from "@headlessui/react";
@@ -7,6 +7,9 @@ import CartStatus from "../CartStatus";
 import LoadingSkeleton from "../ui/LoadingSkeleton";
 import User from "../User";
 import {ClockIcon} from "@heroicons/react/24/outline";
+import i18n from "../../lang/i18n";
+import {useTranslation} from "react-i18next";
+import LocaleContext from "../../LocaleContext";
 
 
 //
@@ -22,9 +25,35 @@ const MenuDesktop = forwardRef(
             isAdmin,
             onMouseEnter,
             onMouseLeave,
+            // changeLocale,
+            // displayLanguage,
+            // i18n
         },
         ref,
-    ) {
+    )
+
+    {
+        const { t } = useTranslation();
+        const { locale } = useContext(LocaleContext)
+        const changeLocale = (l) => {
+            if (locale !== l) {
+                i18n.changeLanguage(l)
+            }
+        }
+        const displayLanguage = (l) => {
+            switch (l){
+                case "ko-KR":
+                    return "한국어"
+                case "en-US" :
+                    return "English"
+                case "jp-JP" :
+                    return "日本語"
+                case "cn-CN" :
+                    return "中国话"
+                default:
+                    return ""
+            }
+        }
         return (
             <nav className="relative bg-white">
                 <div
@@ -178,17 +207,103 @@ const MenuDesktop = forwardRef(
                                     </>
                                 )}
 
-                            </div>
-                            <div className="hidden lg:ml-8 lg:flex">
-                                <img
-                                    src="https://tailwindui.com/img/flags/flag-canada.svg"
-                                    alt=""
-                                    className="block h-auto w-5 shrink-0"
-                                />
-                                <span className="ml-3 block text-sm font-medium text-gray-800">
-                                    CAD
-                                </span>
-                            </div>
+                            </div><Popover className="relative hidden leading-3 md:block">
+                            {({ open }) => (
+                                <>
+                                    {/*<div>*/}
+                                    <div onMouseLeave={onMouseLeave.bind(null, open)}>
+                                        <Popover.Button
+                                            className={classNames(
+                                                open ? 'text-gray-900' : 'text-gray-500',
+                                                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none ',
+                                            )}
+                                            ref={ref}
+                                            onMouseEnter={onMouseEnter.bind(null, open)}
+                                            onMouseLeave={onMouseLeave.bind(null, open)}
+                                        >
+                                            <div  title={displayLanguage(i18n.language)}  className="hidden lg:ml-8 lg:flex">
+                                                <img
+                                                    src="https://tailwindui.com/img/flags/flag-canada.svg"
+                                                    alt=""
+                                                    className="block h-auto w-5 shrink-0"
+                                                />
+                                                {/*<FlagIconUS className="w-6 h-6" />*/}
+                                                <span onClick={() => changeLocale("en-US")} className="ml-3 block text-sm font-medium text-gray-800">{t("USA")}
+                                                </span>
+                                            </div>
+                                        </Popover.Button>
+                                        <Transition
+                                            as={Fragment}
+                                            enter="transition ease-out duration-200"
+                                            enterFrom="opacity-0 translate-y-1"
+                                            enterTo="opacity-100 translate-y-0"
+                                            leave="transition ease-in duration-150"
+                                            leaveFrom="opacity-100 translate-y-0"
+                                            leaveTo="opacity-0 translate-y-1"
+                                        >
+
+                                            <Popover.Panel className="absolute left-32 z-50 mt-0 w-[250px] max-w-sm -translate-x-1/2 px-4 pt-3 sm:px-0 lg:max-w-3xl">
+                                                <div
+                                                    className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5"
+                                                    onMouseEnter={onMouseEnter.bind(null, open)}
+                                                    onMouseLeave={onMouseLeave.bind(null, open)}
+                                                >
+                                                    <div className="relative grid  bg-white ">
+                                                        <div className="p-4" title={displayLanguage(i18n.language)}>
+                                                            <Popover.Button
+                                                                className="flex w-full items-center rounded-lg p-3 hover:bg-gray-50"
+                                                            >
+                                                                <p onClick={() => changeLocale("ko-KR")} className="ml-3 text-base font-medium text-gray-900">
+                                                                    {t("KOREA")}
+                                                                </p>
+                                                            </Popover.Button>
+                                                            <Popover.Button
+                                                                className="flex w-full items-center rounded-lg p-3 hover:bg-gray-50"
+                                                            >
+                                                                <p onClick={() => changeLocale("jp-JP")} className="ml-3 text-base font-medium text-gray-900">
+                                                                    {t("JAPAN")}
+                                                                </p>
+                                                            </Popover.Button>
+                                                            <Popover.Button
+                                                                className="flex w-full items-center rounded-lg p-3 hover:bg-gray-50"
+                                                            >
+                                                                <p onClick={() => changeLocale("cn-CN")} className="ml-3 text-base font-medium text-gray-900">
+                                                                    {t("CHINA")}
+                                                                </p>
+                                                            </Popover.Button>
+
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex items-center bg-gray-50 py-4 px-8">
+                                                        <Popover.Button
+                                                            className="flex items-center text-sm font-medium text-violet-500 hover:text-violet-600"
+                                                            onClick={logout}
+                                                        >
+                                                            <ArrowLeftOnRectangleIcon className="h-4 w-4" />
+                                                            <p className="ml-3 text-base font-medium text-violet-500">
+                                                                Sign out
+                                                            </p>
+                                                        </Popover.Button>
+                                                    </div>
+                                                </div>
+                                            </Popover.Panel>
+
+                                        </Transition>
+                                    </div>
+                                </>
+                            )}
+                        </Popover>
+
+                            {/*<div className="hidden lg:ml-8 lg:flex">*/}
+                            {/*    <img*/}
+                            {/*        src="https://tailwindui.com/img/flags/flag-canada.svg"*/}
+                            {/*        alt=""*/}
+                            {/*        className="block h-auto w-5 shrink-0"*/}
+                            {/*    />*/}
+                            {/*    <span className="ml-3 block text-sm font-medium text-gray-800">*/}
+                            {/*        CAD*/}
+                            {/*    </span>*/}
+                            {/*</div>*/}
                             {/* Cart */}
                             <div className="ml-4 flow-root lg:ml-6">
                                 <Link to="/carts" className="group -m-2 flex items-center p-2">

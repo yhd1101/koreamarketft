@@ -1,10 +1,35 @@
-import React, {useRef, useState} from 'react';
+import React, {useContext, useRef, useState} from 'react';
 import MenuDesktop from "./MenuDeskTop";
 import {useAuthContext} from "../../context/AuthContext";
 import {classNames} from "../../utils/util";
 import {useNavigate} from "react-router-dom";
+import i18n from "../../lang/i18n";
+import {useTranslation} from "react-i18next";
+import localeContext from "../../LocaleContext";
 
 const Navbar = () => {
+    // const { t } = useTranslation()
+    // const { locale } = useContext(localeContext)
+    // const changeLocale = (l) => {
+    //     if (locale !== l) {
+    //         i18n.changeLanguage(l)
+    //     }
+    // }
+    // const displayLanguage = (l) => {
+    //     switch (l){
+    //         case "ko-KR":
+    //             return "한국어"
+    //         case "en-US" :
+    //             return "English"
+    //         case "jp-JP" :
+    //             return "日本語"
+    //         case "cn-CN" :
+    //             return "中国话"
+    //         default:
+    //             return ""
+    //     }
+    // }
+
     const navigate = useNavigate()
     const {user} = useAuthContext()
     // const isAdmin = user?.
@@ -49,6 +74,8 @@ const Navbar = () => {
                 onMouseLeave={onMouseLeave}
                 setOpen={setOpen}
                 ref={buttonRef}
+                // changeLocale={changeLocale}
+                // displayLanguage={displayLanguage}
             />
         </header>
     );

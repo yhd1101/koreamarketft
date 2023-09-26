@@ -1,6 +1,34 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import {useTranslation} from "react-i18next";
+import i18n from "../../lang/i18n";
+import {useContext} from "react";
+import LocaleContext from "../../LocaleContext";
 
 const IntroRarity = () => {
+    const { t} = useTranslation()
+
+    const changeLocale = (l) => {
+        if (locale !== l) {
+            i18n.changeLanguage(l)
+        }
+    }
+
+    const displayLanguage = (l) => {
+        switch (l){
+            case "ko-KR":
+                return "한국어"
+            case "en-US" :
+                return "English"
+            case "jp-JP" :
+                return "日本語"
+            case "cn-CN" :
+                return "中国话"
+            default:
+                return ""
+        }
+    }
+
+    const { locale } = useContext(LocaleContext)
     return (
         <section className="relative mt-10 md:mt-24">
             <div className="overflow-hidden  py-24 sm:py-32">
@@ -19,9 +47,9 @@ const IntroRarity = () => {
                             <div className="text-center">
                                 <h1 className="m-auto text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:max-w-3xl">
                   <span className="block text-violet-500 lg:inline">
-                    Using
+                    {t("Using")}
                   </span>{" "}
-                                    Korea Market
+                                    {t("MainTittle")}
                                 </h1>
                                 <p className="mx-auto max-w-2xl pt-12 text-lg leading-8 text-gray-900">
                                     Discover the World of Korea Market today! Your one-stop destination for authentic Korean treasures and unique finds. Shop with ease, explore diverse categories, and connect with sellers worldwide. Don't miss out—start your Korea Market adventure now. Join us to experience the best of Korean culture and craftsmanship. Your next great discovery is just a click away
