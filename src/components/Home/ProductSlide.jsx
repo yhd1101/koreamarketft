@@ -17,7 +17,7 @@ const ProductSlide = ({
                       }) => {
     return (
         <section className="mx-auto mt-20 w-full max-w-7xl py-4">
-            <ProductTitle title="New Arrivals" className="mb-6 px-6 sm:mb-10" />
+            <ProductTitle title="products" className="mb-6 px-6 sm:mb-10" />
             <Swiper
                 navigation={{
                     nextEl: '.image-swiper-button-next-product',

@@ -7,8 +7,8 @@ const fetchMoneyInfo = async () => {
 };
 
 const useFetchMoney = () => {
-    return useQuery("moneyInfo", fetchMoneyInfo, {
-        keepPreviousData: true,
+    return useQuery(['money'], fetchMoneyInfo, {
+        keepPreviousData: true
     });
 };
 

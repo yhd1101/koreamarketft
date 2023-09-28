@@ -35,18 +35,18 @@ const ProductDetail = () => {
     //     }
     // }
 
-   // 환율 데이터 로딩 중 또는 에러 처리
-   //  if (moneyLoading) {
-   //      return <LoadingSkeleton />;
-   //  }
-   //
-   //  if (moneyError) {
-   //      return (
-   //          <div className="mt-20">
-   //              <ErrorMessage />
-   //          </div>
-   //      );
-   //  }
+   //환율 데이터 로딩 중 또는 에러 처리
+    if (moneyLoading) {
+        return <LoadingSkeleton />;
+    }
+
+    if (moneyError) {
+        return (
+            <div className="mt-20">
+                <ErrorMessage />
+            </div>
+        );
+    }
     // Error Message
     if (error) {
         return (

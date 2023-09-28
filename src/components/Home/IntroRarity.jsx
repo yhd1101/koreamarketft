@@ -49,10 +49,10 @@ const IntroRarity = () => {
                   <span className="block text-violet-500 lg:inline">
                     {t("Using")}
                   </span>{" "}
-                                    {t("MainTittle")}
+                                    {t("MainTitle")}
                                 </h1>
                                 <p className="mx-auto max-w-2xl pt-12 text-lg leading-8 text-gray-900">
-                                    Discover the World of Korea Market today! Your one-stop destination for authentic Korean treasures and unique finds. Shop with ease, explore diverse categories, and connect with sellers worldwide. Don't miss out—start your Korea Market adventure now. Join us to experience the best of Korean culture and craftsmanship. Your next great discovery is just a click away
+                                    {t("Discover the World of Korea Market today! Your one-stop destination for authentic Korean treasures and unique finds. Shop with ease, explore diverse categories, and connect with sellers worldwide. Don't miss out—start your Korea Market adventure now. Join us to experience the best of Korean culture and craftsmanship. Your next great discovery is just a click away")}
                                 </p>
                             </div>
                         </div>

@@ -13,6 +13,7 @@ import FindPassword from "./pages/Auth/FindPassword"
 import ChangePassword from "./pages/Auth/ChagnePassword"
 import Products from "./pages/Product/Products"
 import ProductDetail from "./pages/Product/ProductDetail";
+import Orders from "./pages/Order/Orders";
 import {ReactQueryProvider} from "./Provider";
 import {AuthContextProvider} from "./context/AuthContext";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
@@ -22,6 +23,7 @@ import "./lang/i18n"
 
 import ScrollToTop from "./components/ScrollToTop";
 import * as PropTypes from "prop-types";
+import Profile from "./pages/Auth/Profile";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
             {
                 path:"/product/:id",
                 element: <ProductDetail/>
+            },
+            {
+                path: "/profile",
+                element: <Profile/>
+            },
+            {
+                path: "/order",
+                element: <Orders/>
             }
         ]
     }
