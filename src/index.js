@@ -21,8 +21,6 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "./lang/i18n"
 
-import ScrollToTop from "./components/ScrollToTop";
-import * as PropTypes from "prop-types";
 import Profile from "./pages/Auth/Profile";
 const router = createBrowserRouter([
     {

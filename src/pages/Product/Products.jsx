@@ -56,9 +56,9 @@ const Products = () => {
                             <ul className="grid grid-cols-1 gap-6  sm:grid-cols-2 md:grid-cols-4">
                                 <>
                                     {error && <ErrorMessage />}
-                                    {data?.map((item, index)=> (
+                                    {data.map((item, index)=> (
                                         <Fragment key={index}>
-                                            <ProductItem image={item.productImg[0]} title={item.name} id={item.id} />
+                                            <ProductItem image={data?.item.productImg[0]} title={data?.item.name} id={data?.item.id} />
                                         </Fragment>
                                     ))}
                                 </>

@@ -80,7 +80,7 @@ const ProductDetail = () => {
                                         <div className="absolute inset-0 translate-x-1/2 translate-y-1/2">
                                             <LazyLoadImage
                                                 src={img}
-                                                alt={data.desc}
+                                                alt={data?.data.desc}
                                                 effect="blur"
                                                 className="absolute top-0 left-0 h-full w-auto -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:opacity-75"
                                             />
@@ -134,7 +134,7 @@ const ProductDetail = () => {
                         <div className="mt-4 lg:mt-0">
                             <h2 className="sr-only">Product information</h2>
                             <p className="mt-4 text-3xl tracking-tight text-gray-900">
-                                ${data?.price}
+                                ${data?.data.price}
                                 {/*{moneyInfo ? (*/}
                                 {/*    <h5>*/}
                                 {/*        Korea is {data?.price * moneyInfo.rates.KRW}원*/}
@@ -145,15 +145,15 @@ const ProductDetail = () => {
                                 {/*        Japan is {data?.price * moneyInfo.rates.JPY}엔*/}
                                 {/*    </h5>*/}
                                 {/*) : null}*/}
-                                <h5>korea is {data?.price * moneyInfo?.rates?.KRW.slice(0,5)}원</h5>
-                                <h5>Japan is {data?.price * moneyInfo?.rates?.JPY.slice(0,5)}엔</h5>
+                                <h5>korea is {data?.data.price * moneyInfo?.rates?.KRW.slice(0,5)}원</h5>
+                                <h5>Japan is {data?.data.price * moneyInfo?.rates?.JPY.slice(0,5)}엔</h5>
                             </p>
                         </div>
 
                         <div className="mt-10">
                             <div className=" lg:border-gray-200 lg:pr-8">
                                 <p className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
-                                    Location: {data?.region}
+                                    Location: {data?.data.region}
                                 </p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ const ProductDetail = () => {
                         <div className="mt-8">
                             <div className=" lg:border-gray-200 lg:pr-8">
                                 <p className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
-                                    Brand: {data?.brand}
+                                    Brand: {data?.data.brand}
                                 </p>
                             </div>
                         </div>

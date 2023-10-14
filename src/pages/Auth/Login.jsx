@@ -9,6 +9,9 @@ import {AiOutlineGoogle} from "react-icons/ai";
 import {SiNaver} from "react-icons/si";
 import {SiKakao} from "react-icons/si";
 import useLoginUser from "../../services/loginUser";
+import GoogleLoginButton from "../../components/ui/GoogleLoginButton";
+import NaverLoginButton from "../../components/ui/NaverLoginButton";
+import KakaoLoginButton from "../../components/ui/KakaoLoginButton";
 
 
 const Login = () => {
@@ -35,6 +38,24 @@ const Login = () => {
         await mutateAsync(values)
         navigate("/")
     }
+    const handleGoogleLogin = () => {
+        const popup = window.open('http://localhost:8000/api/auth/google', 'Google Login', 'width=800,height=600');
+
+        const receiveLoginCompleteMessage = (event) => {
+            if (event.origin === 'http://localhost:8000' && event.data === 'loginComplete') {
+                popup.close();
+                const storagedUser = localStorage.getItem("userInfo")
+                const storagedToken = localStorage.getItem("token")
+
+
+                // 여기서 프론트엔드에서 사용자 정보를 처리할 수 있습니다.
+                // 예: 로그인 상태 유지, 사용자 정보를 상태에 저장 등
+            }
+            navigate('/profile')
+        };
+
+        window.addEventListener('message', receiveLoginCompleteMessage);
+    };
 
     // const onSubmit = handleSubmit((data) => {
     //     console.log(data)
@@ -94,29 +115,27 @@ const Login = () => {
                             className="rounded-lg bg-violet-500 py-4 font-semibold text-white hover:bg-violet-600"
                         />
                     </form>
-                    <Button
+                    <GoogleLoginButton
                         text={"Sign with Google"}
                         icon={() => <AiOutlineGoogle className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
-                        onClick={() => {
-                            window.location.href = "http://localhost:8000/api/auth/google"; // 클라이언트에서 서버로의 요청
-                        }}
+                        onClick={handleGoogleLogin}
                     />
-                    <Button
+                    <NaverLoginButton
                         text={"Sign with Naver"}
                         icon={() => <SiNaver className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
-                        onClick={() => {
-                            window.location.href = "http://localhost:8000/api/auth/naver"; // 클라이언트에서 서버로의 요청
-                        }}
+                        // onClick={() => {
+                        //     window.location.href = "http://localhost:8000/api/auth/naver"; // 클라이언트에서 서버로의 요청
+                        // }}
                     />
-                    <Button
+                    <KakaoLoginButton
                         text={"Sign with Kakao"}
                         icon={() => <SiKakao className={"mr-2 text-2xl"}/> }
                         className={"mt-6 w-full max-w-sm rounded-lg border border-gray-300 bg-white py-4 font-semibold text-slate-500 hover:bg-gray-50"}
-                        onClick={() => {
-                            window.location.href = "http://localhost:8000/api/auth/kakao"; // 클라이언트에서 서버로의 요청
-                        }}
+                        // onClick={() => {
+                        //     window.location.href = "http://localhost:8000/api/auth/kakao"; // 클라이언트에서 서버로의 요청
+                        // }}
                     />
                     <div className="mt-10 text-slate-500">
                         Already have an account?

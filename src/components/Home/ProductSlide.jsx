@@ -5,8 +5,8 @@ import { Pagination, Navigation } from 'swiper';
 import {PRODUCT_BREAK_POINTS, PRODUCT_LOADING_ARRAY} from "../../data/Home/slideOptions";
 import ImagePlaceholder from "../ui/ImagePlaceholder";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/react/24/solid";
-import ProductCard from "../ui/ProductCard";
 import ErrorMessage from "../ui/ErrorMessage";
+import ProductCard from "../ui/ProductCard";
 
 
 
@@ -15,6 +15,13 @@ const ProductSlide = ({
     error,
     products
                       }) => {
+    console.log("products++++++", products)
+
+    if (isLoading) {
+        <div>
+            Loading
+        </div>
+    }
     return (
         <section className="mx-auto mt-20 w-full max-w-7xl py-4">
             <ProductTitle title="products" className="mb-6 px-6 sm:mb-10" />
@@ -51,13 +58,13 @@ const ProductSlide = ({
                         className="group cursor-pointer rounded-2xl transition-shadow duration-300 ease-in-out hover:shadow-md"
                     >
                         <ProductCard
-                            id={product.id}
-                            image={product.productImg[0]}
-                            description={product.desc[0]}
-                            title={product.name}
-                            price={product.price}
-                            category={product.category[0]}
-                            location={product.region}
+                            id={product?.id}
+                            image={product?.productImg[0]}
+                            description={product?.desc[0]}
+                            title={product?.name}
+                            price={product?.price}
+                            category={product?.category[0]}
+                            location={product?.region}
                             // sizes={product.sizes}
                             // tags={product.tags}
                         />

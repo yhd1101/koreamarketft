@@ -4,7 +4,7 @@ import useFetchProducts from "../../services/fetchProducts";
 
 const SlideContainer = () => {
     const {data, isLoading, error} = useFetchProducts()
-    console.log(data)
+    console.log("ddddsdsa+=",data)
     return (
         <ProductSlide products={data} error={error} isLoading={isLoading}/>
 

@@ -15,8 +15,9 @@ const useLoginUser = () => {
     return useMutation({
         mutationFn: (userInput) => loginUser(userInput),
         onSuccess: (data) => {
-            localStorage.setItem("token", data.token)
-            localStorage.setItem("userInfo", JSON.stringify(data.user))
+            console.log("+++++wweqeq",data.data.token)
+            localStorage.setItem("token", data.data.token)
+            localStorage.setItem("userInfo", JSON.stringify(data.data.user))
             setUser(data.user)
             queryClient.invalidateQueries({
                 queryKey: ['users'],
